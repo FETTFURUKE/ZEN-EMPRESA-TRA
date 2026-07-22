@@ -1,10 +1,15 @@
+Pronto! Todas as menções a **Grupo Fênix** foram alteradas para **Grupo Vertex**.
+
+Aqui está o código HTML completo atualizado:
+
+```html
 <!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Grupo Fênix — empresas especializadas, soluções conectadas.">
-  <title>Grupo Fênix | Soluções conectadas</title>
+  <meta name="description" content="Grupo Vertex — empresas especializadas, soluções conectadas.">
+  <title>Grupo Vertex | Soluções conectadas</title>
   <style>
     :root { 
       --ink: #15213b; --muted: #65708a; --surface: #fff; --line: #e6eaf2; 
@@ -29,12 +34,11 @@
     .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
     .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 850; text-decoration: none; letter-spacing: .04em; }
     
-    /* AQUI ESTÁ A CONFIGURAÇÃO DA LOGO */
     .brand-logo { 
       width: 45px; 
       height: 45px; 
       object-fit: contain; 
-      mix-blend-mode: multiply; /* Remove o fundo branco */
+      mix-blend-mode: multiply;
     }
 
     .nav-links { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -161,10 +165,9 @@
 <body>
   <header class="topbar">
     <nav class="shell nav">
-      <!-- LINK DA IMAGEM INSERIDO AQUI ↓ -->
       <a class="brand" href="#inicio" data-route="inicio">
-        <img src="https://www.image2url.com/r2/default/images/1784714981959-d02e5733-58a3-4668-9ed3-c55ec3a9f53f.png" alt="Logo Grupo Fênix" class="brand-logo">
-        GRUPO FÊNIX
+        <img src="https://www.image2url.com/r2/default/images/1784714981959-d02e5733-58a3-4668-9ed3-c55ec3a9f53f.png" alt="Logo Grupo Vertex" class="brand-logo">
+        GRUPO VERTEX
       </a>
       <div class="nav-links">
         <button type="button" data-route="inicio" class="active">Início</button>
@@ -182,7 +185,7 @@
           <div>
             <span class="eyebrow">Ecossistema Empresarial</span>
             <h1>Ideias conectadas.<br>Soluções que avançam.</h1>
-            <p>O Grupo Fênix reúne empresas especializadas para resolver desafios industriais, de tecnologia, embalagem, comércio, segurança e compras com precisão e eficiência.</p>
+            <p>O Grupo Vertex reúne empresas especializadas para resolver desafios industriais, de tecnologia, embalagem, comércio, segurança e compras com precisão e eficiência.</p>
             <div class="cta-row">
               <button class="btn primary" type="button" data-route="empresas">Conheça as empresas</button>
               <button class="btn" type="button" data-route="central">Acessar Central</button>
@@ -221,20 +224,21 @@
     <section class="view" id="central">
       <div class="section-heading">
         <div>
-          <span class="eyebrow" style="color:#ff5e00;background:#ffe6d4">Central Grupo Fênix</span>
+          <span class="eyebrow" style="color:#ff5e00;background:#ffe6d4">Central Grupo Vertex</span>
           <h2>Gestão de Solicitações e Contatos</h2>
         </div>
         <p>Preencha os dados abaixo. O e-mail será enviado automaticamente para a administração e o registro ficará salvo no painel abaixo.</p>
       </div>
       
       <div class="split">
-        <form class="panel contact-form" id="request-form" action="https://formsubmit.co/groupvertexsc@gmail.com" method="POST">
+        <!-- FORMULÁRIO CONFIGURADO COM WEB3FORMS -->
+        <form class="panel contact-form" id="request-form" action="https://api.web3forms.com/submit" method="POST">
           <h3>Nova solicitação</h3>
           
-          <input type="hidden" name="_subject" value="Nova Solicitação - Grupo Fênix">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="#">
+          <!-- Chave do Web3Forms -->
+          <input type="hidden" name="access_key" value="24b279d4-5c95-4f20-b149-cc1cf4263657">
+          <input type="hidden" name="subject" value="Nova Solicitação - Grupo Vertex">
+          <input type="hidden" name="from_name" value="Central Grupo Vertex">
 
           <div class="form-layout">
             <label>Cliente / Empresa
@@ -300,7 +304,7 @@
   </main>
 
   <footer>
-    <div class="shell">© <span id="year"></span> Grupo Fênix · Soluções Conectadas para a Indústria e o Mercado.</div>
+    <div class="shell">© <span id="year"></span> Grupo Vertex · Soluções Conectadas para a Indústria e o Mercado.</div>
   </footer>
 
   <script>
@@ -355,7 +359,7 @@
           </article>
           <article class="panel">
             <h2>Integração ao Grupo</h2>
-            <p>A ${c.name} atua de forma conectada ao Grupo Fênix. Se o seu projeto demanda múltiplas áreas, nossa Central coordena a execução.</p>
+            <p>A ${c.name} atua de forma conectada ao Grupo Vertex. Se o seu projeto demanda múltiplas áreas, nossa Central coordena a execução.</p>
             <button class="btn primary" type="button" data-central-company="${c.name}">Solicitar Projeto à ${c.name}</button>
           </article>
         </section>
@@ -398,8 +402,14 @@
       }
     };
 
-    document.getElementById('request-form').addEventListener('submit', (event) => {       
-      const data = {
+    document.getElementById('request-form').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      
+      const feedbackElement = document.getElementById('request-feedback');
+      feedbackElement.style.color = 'var(--orange)';
+      feedbackElement.textContent = "Enviando solicitação...";
+      
+      const localData = {
         protocol: `GF-${String(protocolNumber++).padStart(4, '0')}`,
         requester: document.getElementById('requester').value.trim(),
         reply: document.getElementById('reply-email').value.trim(),
@@ -409,11 +419,31 @@
       
       localStorage.setItem('gf-protocol-number', protocolNumber); 
       const requests = getRequests(); 
-      requests.unshift(data); 
+      requests.unshift(localData); 
       localStorage.setItem('gf-requests', JSON.stringify(requests)); 
-      
-      document.getElementById('request-feedback').textContent = `Dados salvos localmente. Redirecionando para envio de e-mail...`;
       renderRequests();
+
+      const formData = new FormData(this);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          feedbackElement.style.color = 'var(--green)';
+          feedbackElement.textContent = "Sucesso! Solicitação enviada e registrada no painel.";
+          this.reset();
+        } else {
+          feedbackElement.style.color = 'red';
+          feedbackElement.textContent = "Erro da API: " + data.message;
+        }
+      })
+      .catch(error => {
+        feedbackElement.style.color = 'red';
+        feedbackElement.textContent = "Erro ao enviar. Verifique sua conexão.";
+      });
     });
 
     document.getElementById('request-company').innerHTML = Object.values(companies).map(c => `<option value="${c.name}">${c.name}</option>`).join('');
@@ -424,3 +454,5 @@
   </script>
 </body>
 </html>
+
+```
