@@ -11,7 +11,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script type="text/javascript">
     (function() {
-      emailjs.init("NZuu0neEMkQqgOW_9"); // Substitua aqui pela sua Public Key real do EmailJS
+      emailjs.init("0ZWQ6b8NZOv9rIUwd"); // Substitua aqui pela sua Public Key real do EmailJS
     })();
   </script>
 
